@@ -2,19 +2,17 @@
 //a specific range [x:y]
 #define SIZE  8
 int givenArray[SIZE] = {7,-2,3,9,-11,5,1,-3};
-int partialSums[SIZE];
 
 void fillPartialSums()
 {
-    partialSums[0] = givenArray[0];
     for (int i{1};i<SIZE;++i)
     {
-        partialSums[i] = partialSums[i-1]+givenArray[i];
+        givenArray[i] += givenArray[i-1];
     }
 }
 int calculatePartialSums(int x,int y)
 {
     if (x == 0)
-        return partialSums[y];
-    return partialSums[y] - partialSums[x-1];
+        return givenArray[y];
+    return givenArray[y] - givenArray[x-1];
 }
