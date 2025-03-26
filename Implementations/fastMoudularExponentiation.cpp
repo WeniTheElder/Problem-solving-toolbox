@@ -1,6 +1,8 @@
 long long fastModularExponentiation(long long base,long long exponent,long long mod)
 {
     long long ans = 1;
+
+    //handle the edge case of m = 1
     if (mod == 1) return 0;
 
     while (exponent >0)
